@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Phone } from "lucide-react";
 
 import { LanguageSwitcher } from "@/components/language-switcher";
 
@@ -14,32 +15,37 @@ const navLinks = [
 
 export function Navbar() {
   return (
-    <header className="border-b border-slate-200 bg-white">
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60">
+      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6 transition-all">
+        <Link href="/" className="flex items-center transition-opacity hover:opacity-90">
           <Image
             src="/udrivelogo.png"
             alt="uDrive"
-            width={140}
-            height={40}
-            className="h-8 w-auto"
+            width={160}
+            height={45}
+            className="h-10 w-auto"
             priority
           />
         </Link>
-        <nav className="hidden items-center gap-4 text-sm text-slate-600 md:flex">
+        <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="hover:text-emerald-600">
+            <Link 
+              key={link.href} 
+              href={link.href} 
+              className="relative transition-colors hover:text-emerald-600"
+            >
               {link.label}
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           <LanguageSwitcher />
           <a
             href="tel:+994999797799"
-            className="text-sm font-medium text-slate-700 underline-offset-4 hover:underline"
+            className="group flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700 transition-all hover:bg-emerald-100 hover:text-emerald-800"
           >
-            +994 999 79 77 99
+            <Phone className="h-4 w-4 transition-transform group-hover:rotate-12" />
+            <span>+994 999 79 77 99</span>
           </a>
         </div>
       </div>

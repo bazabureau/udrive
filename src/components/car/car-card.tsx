@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Fuel, Gauge, Settings, Users } from "lucide-react";
 
 import type { Car } from "@/data/cars";
 import type { CarCardLabels } from "@/data/translations";
@@ -16,85 +17,71 @@ export function CarCard({ car, labels }: CarCardProps) {
   const whatsappLink = `https://wa.me/994999797799?text=${encodeURIComponent(
     `Salam, ${car.brand} ${car.model} (${car.year}) üçün rezervasiya etmək istəyirəm.`
   )}`;
-  const convertedPrice = (car.pricePerDay * rates[currency]).toFixed(1);
+  const convertedPrice = (car.pricePerDay * rates[currency]).toFixed(0);
 
   return (
-    <article className="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
-            {car.brand}
-          </p>
-          <h3 className="text-lg font-semibold text-slate-900">
-            {car.model}
-          </h3>
-        </div>
-        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs uppercase tracking-wide text-slate-500">
-          {car.category}
-        </span>
-      </div>
-
-      <div className="relative h-36 w-full overflow-hidden rounded-lg bg-slate-100">
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/50">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
         <Image
           src={car.image}
           alt={`${car.brand} ${car.model}`}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 400px"
         />
+        <div className="absolute right-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-700 backdrop-blur-sm">
+          {car.category}
+        </div>
       </div>
 
-      <dl className="space-y-2 text-sm text-slate-600">
-        <Spec label={labels.specs.year} value={car.year} />
-        <Spec label={labels.specs.type} value={car.type} />
-        <Spec label={labels.specs.seats} value={car.seats} />
-        <Spec label={labels.specs.engine} value={car.engine} />
-        <Spec label={labels.specs.gear} value={car.gear} />
-        <Spec
-          label={labels.specs.price}
-          value={`${convertedPrice} ${currency}`}
-          emphasize
-        />
-      </dl>
+      <div className="flex flex-1 flex-col gap-4 p-5">
+        <div className="flex items-start justify-between gap-2">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              {car.brand}
+            </p>
+            <h3 className="text-lg font-bold text-slate-900">
+              {car.model}
+            </h3>
+          </div>
+          <div className="text-right">
+            <p className="text-lg font-bold text-emerald-600">
+              {convertedPrice} <span className="text-sm font-medium">{currency}</span>
+            </p>
+            <p className="text-[10px] text-slate-400">/ gün</p>
+          </div>
+        </div>
 
-      <div className="space-y-2">
-        <Button asChild className="w-full">
-          <Link href={whatsappLink} target="_blank" rel="noreferrer">
-            {labels.orderCta}
-          </Link>
-        </Button>
-        <Link
-          href={whatsappLink}
-          target="_blank"
-          rel="noreferrer"
-          className="block text-center text-sm font-medium text-slate-500 underline-offset-4 hover:underline"
-        >
-          {labels.more}
-        </Link>
+        <div className="grid grid-cols-2 gap-y-2 gap-x-4 border-y border-slate-50 py-3">
+          <Spec icon={Settings} value={car.year} />
+          <Spec icon={Gauge} value={car.engine} />
+          <Spec icon={Fuel} value={car.type} />
+          <Spec icon={Users} value={`${car.seats} yer`} />
+        </div>
+
+        <div className="mt-auto flex gap-2">
+          <Button asChild className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-100">
+            <Link href={whatsappLink} target="_blank" rel="noreferrer">
+              {labels.orderCta}
+            </Link>
+          </Button>
+        </div>
       </div>
     </article>
   );
 }
 
 function Spec({
-  label,
+  icon: Icon,
   value,
-  emphasize,
 }: {
-  label: string;
+  icon: any;
   value: string | number;
-  emphasize?: boolean;
 }) {
   return (
-    <div className="flex items-center justify-between">
-      <span className="text-xs uppercase tracking-wide text-slate-400">
-        {label}
-      </span>
-      <span
-        className={emphasize ? "text-base font-semibold text-slate-900" : ""}
-      >
-        {value}
-      </span>
+    <div className="flex items-center gap-2 text-sm text-slate-500">
+      <Icon className="h-4 w-4 text-slate-400" />
+      <span className="font-medium">{value}</span>
     </div>
   );
 }

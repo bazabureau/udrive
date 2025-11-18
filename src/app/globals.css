@@ -11,11 +11,29 @@
     --border: 213 27% 90%;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-[hsl(var(--border))];
   }
 
   body {
-    @apply bg-[hsl(var(--background))] font-sans text-[hsl(var(--foreground))] antialiased;
+    @apply bg-[hsl(var(--background))] font-sans text-[hsl(var(--foreground))] antialiased selection:bg-emerald-100 selection:text-emerald-900;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-sm;
+  }
+  
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-white/80 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }
