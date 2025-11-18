@@ -26,7 +26,7 @@ const baseCars = [
     engine: "1.5L / 153HP",
     gear: "Automatic",
     pricePerDay: 60,
-    image: "/cruze2019.avif",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/22/2016_Chevrolet_Cruze_LT_1.4L_front_3.16.18.jpg",
   },
   {
     id: "kia-cerato",
@@ -40,7 +40,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 60,
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/1/19/2019_Kia_Cerato_SPORT_%28BD%29_sedan_%282019-12-13%29_01.png",
+      "https://upload.wikimedia.org/wikipedia/commons/6/6c/2019_Kia_Cerato_%28BD_MY19%29_S_sedan_%282018-11-02%29_01.jpg",
   },
   {
     id: "hyundai-sonata",
@@ -54,7 +54,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 130,
     image:
-      "https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Hyundai_Sonata_DN8_PE_Serenity_White_Pearl_%282%29.jpg/1280px-Hyundai_Sonata_DN8_PE_Serenity_White_Pearl_%282%29.jpg",
   },
   {
     id: "land-rover-defender",
@@ -68,7 +68,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 450,
     image:
-      "https://images.pexels.com/photos/1053132/pexels-photo-1053132.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Land_Rover_Defender_L663_white_%281%29.jpg/1280px-Land_Rover_Defender_L663_white_%281%29.jpg",
   },
   {
     id: "kia-sorento",
@@ -82,7 +82,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 150,
     image:
-      "https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Kia_Sorento_MQ4_Snow_White_Pearl_%281%29.jpg/1280px-Kia_Sorento_MQ4_Snow_White_Pearl_%281%29.jpg",
   },
   {
     id: "kia-k5",
@@ -96,7 +96,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 120,
     image:
-      "https://images.pexels.com/photos/212773/pexels-photo-212773.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Kia_K5_Hybrid_DL3_White_%281%29.jpg/1280px-Kia_K5_Hybrid_DL3_White_%281%29.jpg",
   },
   {
     id: "hyundai-elantra",
@@ -110,7 +110,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 60,
     image:
-      "https://images.pexels.com/photos/244209/pexels-photo-244209.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Hyundai_Avante_AD_white_%281%29.jpg/1280px-Hyundai_Avante_AD_white_%281%29.jpg",
   },
   {
     id: "changan-uni-v",
@@ -124,7 +124,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 90,
     image:
-      "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Chang%27an_UNI-V_004.jpg/1280px-Chang%27an_UNI-V_004.jpg",
   },
   {
     id: "changan-uni-k",
@@ -138,7 +138,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 140,
     image:
-      "https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Chang%27an_UNI-K_iDD_001.jpg/1280px-Chang%27an_UNI-K_iDD_001.jpg",
   },
   {
     id: "changan-gs55",
@@ -152,7 +152,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 110,
     image:
-      "https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Changan_CS55_Plus_II_001.jpg/1280px-Changan_CS55_Plus_II_001.jpg",
   },
   {
     id: "changan-a05",
@@ -166,7 +166,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 75,
     image:
-      "https://images.pexels.com/photos/1149837/pexels-photo-1149837.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Qiyuan_A05_001.jpg/1280px-Qiyuan_A05_001.jpg",
   },
   {
     id: "hyundai-tucson",
@@ -180,7 +180,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 110,
     image:
-      "https://images.pexels.com/photos/1149839/pexels-photo-1149839.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Hyundai_Tucson_TL_FL_white_%281%29.jpg/1280px-Hyundai_Tucson_TL_FL_white_%281%29.jpg",
   },
   {
     id: "hyundai-kona",
@@ -194,7 +194,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 85,
     image:
-      "https://images.pexels.com/photos/784315/pexels-photo-784315.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/2020_Hyundai_Kona_Electric_in_Chalk_White%2C_front_left.jpg/1280px-2020_Hyundai_Kona_Electric_in_Chalk_White%2C_front_left.jpg",
   },
   {
     id: "bmw-x5-f95",
@@ -208,7 +208,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 330,
     image:
-      "https://images.pexels.com/photos/1402777/pexels-photo-1402777.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/BMW_G05_45e_IMG_3722.jpg/1280px-BMW_G05_45e_IMG_3722.jpg",
   },
   {
     id: "toyota-prado",
@@ -222,7 +222,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 110,
     image:
-      "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Toyota_Land_Cruiser_Prado_%28J150%2C_2nd_Facelift%29_IMG_0050.jpg/1280px-Toyota_Land_Cruiser_Prado_%28J150%2C_2nd_Facelift%29_IMG_0050.jpg",
   },
   {
     id: "mercedes-g63",
@@ -236,7 +236,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 700,
     image:
-      "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Mercedes-AMG_W463_G_63_Polar_White_%288%29.jpg/1280px-Mercedes-AMG_W463_G_63_Polar_White_%288%29.jpg",
   },
   {
     id: "land-rover-range-rover",
@@ -250,7 +250,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 300,
     image:
-      "https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/2021_Range_Rover_SV_Autobiography_LWB_in_Yulong_White%2C_rear_left.jpg/1280px-2021_Range_Rover_SV_Autobiography_LWB_in_Yulong_White%2C_rear_left.jpg",
   },
   {
     id: "bmw-g20",
@@ -264,7 +264,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 200,
     image:
-      "https://images.pexels.com/photos/244208/pexels-photo-244208.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/BMW_G20_LCI_320i_Alpine_White_%281%29.jpg/1280px-BMW_G20_LCI_320i_Alpine_White_%281%29.jpg",
   },
   {
     id: "hyundai-accent",
@@ -278,7 +278,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 55,
     image:
-      "https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/2019_Hyundai_Accent_1.6L%2C_front_10.8.19.jpg/1280px-2019_Hyundai_Accent_1.6L%2C_front_10.8.19.jpg",
   },
   {
     id: "bmw-x7",
@@ -292,7 +292,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 400,
     image:
-      "https://images.pexels.com/photos/3731955/pexels-photo-3731955.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BMW_X7_G07_white_%281%29.jpg/1280px-BMW_X7_G07_white_%281%29.jpg",
   },
   {
     id: "toyota-rav4",
@@ -306,7 +306,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 120,
     image:
-      "https://images.pexels.com/photos/3731957/pexels-photo-3731957.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Toyota_RAV4_%28XA50%29_IMG_1998.jpg/1280px-Toyota_RAV4_%28XA50%29_IMG_1998.jpg",
   },
   {
     id: "toyota-camry",
@@ -320,7 +320,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 120,
     image:
-      "https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Toyota_Camry_%28XV70%29_IMG_3471.jpg/1280px-Toyota_Camry_%28XV70%29_IMG_3471.jpg",
   },
   {
     id: "toyota-corolla",
@@ -334,7 +334,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 85,
     image:
-      "https://images.pexels.com/photos/244212/pexels-photo-244212.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Toyota_Corolla_%28E210%29_sedan_IMG_4190.jpg/1280px-Toyota_Corolla_%28E210%29_sedan_IMG_4190.jpg",
   },
   {
     id: "kia-sportage",
@@ -348,7 +348,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 120,
     image:
-      "https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kia_Sportage_NQ5_Snow_White_Pearl_%281%29.jpg/1280px-Kia_Sportage_NQ5_Snow_White_Pearl_%281%29.jpg",
   },
   {
     id: "jetour-dashing",
@@ -362,7 +362,7 @@ const baseCars = [
     gear: "Automatic",
     pricePerDay: 120,
     image:
-      "https://images.pexels.com/photos/1149386/pexels-photo-1149386.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Jetour_Dashing_001.jpg/1280px-Jetour_Dashing_001.jpg",
   },
 ];
 
