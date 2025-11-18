@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --primary: 161 94% 32%;
+    --primary-foreground: 0 0% 100%;
+    --border: 213 27% 90%;
+  }
+
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+
+  body {
+    @apply bg-[hsl(var(--background))] font-sans text-[hsl(var(--foreground))] antialiased;
+  }
+}

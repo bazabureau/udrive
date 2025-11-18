@@ -1,0 +1,67 @@
+  ▲ Next.js 14.2.15
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/11) ...
+TypeError: (0 , s.Z) is not a function
+    at o (/Users/kamrannamazov/Desktop/udrive.az/.next/server/app/korporativ/page.js:1:10069)
+    at eh (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134657)
+    at e (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:137542)
+    at ek (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:138016)
+    at eh (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135170)
+    at e (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:137542)
+    at ek (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:138016)
+    at Array.toJSON (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135626)
+    at stringify (<anonymous>)
+    at eP (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142090) {
+  digest: '1752631925'
+}
+   Generating static pages (2/11) 
+TypeError: (0 , s.Z) is not a function
+    at o (/Users/kamrannamazov/Desktop/udrive.az/.next/server/app/korporativ/page.js:1:10069)
+    at eh (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134657)
+    at e (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:137542)
+    at ek (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:138016)
+    at eh (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135170)
+    at e (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:137542)
+    at ek (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:138016)
+    at Array.toJSON (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135626)
+    at stringify (<anonymous>)
+    at eP (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142090) {
+  digest: '1752631925'
+}
+   Generating static pages (5/11) 
+TypeError: (0 , s.Z) is not a function
+    at o (/Users/kamrannamazov/Desktop/udrive.az/.next/server/app/korporativ/page.js:1:10069)
+    at eh (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134657)
+    at e (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:137542)
+    at ek (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:138016)
+    at eh (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135170)
+    at e (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:137542)
+    at ek (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:138016)
+    at Array.toJSON (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135626)
+    at stringify (<anonymous>)
+    at eP (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142090) {
+  digest: '1752631925'
+}
+
+Error occurred prerendering page "/korporativ". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: (0 , s.Z) is not a function
+    at o (/Users/kamrannamazov/Desktop/udrive.az/.next/server/app/korporativ/page.js:1:10069)
+    at eh (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134657)
+    at e (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:137542)
+    at ek (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:138016)
+    at eh (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135170)
+    at e (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:137542)
+    at ek (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:138016)
+    at Array.toJSON (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135626)
+    at stringify (<anonymous>)
+    at eP (/Users/kamrannamazov/Desktop/udrive.az/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142090)
+   Generating static pages (8/11) 
+ ✓ Generating static pages (11/11)
+
+> Export encountered errors on following paths:
+	/korporativ/page: /korporativ
