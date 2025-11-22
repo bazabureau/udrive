@@ -90,7 +90,7 @@ const jsonLd = {
   image: "https://udrive.az/udrivelogo.png",
   "@id": "https://udrive.az",
   url: "https://udrive.az",
-  telephone: "+994999797799",
+  telephone: "+994509799797",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Bakı şəhəri",
@@ -131,7 +131,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="az">
-      <body className={`${fontSans.variable} flex min-h-screen flex-col bg-slate-50`}>
+      <body className={`${fontSans.variable} flex min-h-screen flex-col bg-black`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -15,8 +15,8 @@ export function LanguageSwitcher() {
           onClick={() => setLanguage(option.id)}
           className={`rounded-full border px-3 py-1 text-sm font-medium transition ${
             option.id === language
-              ? "border-emerald-600 bg-emerald-50 text-emerald-700"
-              : "border-slate-200 text-slate-600 hover:bg-slate-100"
+              ? "border-emerald-400 bg-emerald-500 text-black shadow-[0_0_30px_rgba(52,211,153,0.4)]"
+              : "border-emerald-500/30 text-emerald-100 hover:bg-emerald-500/10"
           }`}
         >
           {option.label}

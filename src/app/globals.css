@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
-    --primary: 161 94% 32%;
-    --primary-foreground: 0 0% 100%;
-    --border: 213 27% 90%;
+    --background: 0 0% 0%;
+    --foreground: 139 80% 85%;
+    --primary: 145 90% 45%;
+    --primary-foreground: 154 75% 10%;
+    --border: 145 35% 35%;
   }
 
   html {
@@ -26,11 +26,11 @@
 
 @layer utilities {
   .glass {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-sm;
+    @apply bg-emerald-900/40 backdrop-blur-lg border border-emerald-500/20 shadow-sm;
   }
   
   .glass-hover {
-    @apply transition-all duration-300 hover:bg-white/80 hover:shadow-md hover:-translate-y-0.5;
+    @apply transition-all duration-300 hover:bg-emerald-900/60 hover:shadow-md hover:-translate-y-0.5;
   }
 
   .text-balance {

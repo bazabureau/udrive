@@ -38,28 +38,28 @@ export function HomeContent() {
       <div className="flex flex-wrap items-center gap-3">
         <CurrencySwitcher />
       </div>
-      <section className="relative grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
+      <section className="relative grid gap-12 overflow-hidden rounded-3xl border border-emerald-500/20 bg-gradient-to-br from-black via-emerald-950 to-black p-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 lg:p-10">
         {/* Background Gradient */}
-        <div className="absolute -left-20 -top-20 -z-10 h-[500px] w-[500px] rounded-full bg-emerald-50/50 blur-3xl" />
-        <div className="absolute -right-20 top-40 -z-10 h-[300px] w-[300px] rounded-full bg-blue-50/50 blur-3xl" />
+        <div className="absolute -left-20 -top-20 -z-10 h-[500px] w-[500px] rounded-full bg-emerald-500/20 blur-3xl" />
+        <div className="absolute -right-20 top-40 -z-10 h-[300px] w-[300px] rounded-full bg-emerald-400/10 blur-3xl" />
 
         <div className="space-y-8 py-8">
           <div className="space-y-6">
-            <div className="inline-flex items-center rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1">
-              <span className="text-xs font-bold tracking-widest text-emerald-600 uppercase">
+            <div className="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1">
+              <span className="text-xs font-bold tracking-widest text-emerald-300 uppercase">
                 Premium Rent a Car
               </span>
             </div>
-            <h1 className="text-balance text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+            <h1 className="text-balance text-4xl font-bold tracking-tight text-emerald-50 md:text-5xl lg:text-6xl">
               {t.heroTitle}
             </h1>
-            <p className="max-w-lg text-lg leading-relaxed text-slate-600">
+            <p className="max-w-lg text-lg leading-relaxed text-emerald-200">
               {t.heroDescription}
             </p>
-            <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-slate-500">
+            <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-emerald-300">
               {t.heroBullets.map((item) => (
                 <li key={item} className="flex items-center gap-2">
-                  <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  <div className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                   {item}
                 </li>
               ))}
@@ -77,19 +77,19 @@ export function HomeContent() {
             </Link>
             <Link
               href="/cars"
-              className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center rounded-full border border-emerald-500/40 bg-transparent px-8 py-3 text-sm font-semibold text-emerald-100 shadow-sm transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-500/10"
             >
               {t.heroCtas.secondary}
             </Link>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 border-t border-slate-100 pt-8">
+          <div className="grid grid-cols-3 gap-4 border-t border-emerald-500/20 pt-8">
             {t.stats.map((stat) => (
               <div key={stat.label} className="space-y-1">
-                <p className="text-3xl font-bold tracking-tight text-slate-900">
+                <p className="text-3xl font-bold tracking-tight text-emerald-50">
                   {stat.value}
                 </p>
-                <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-300">
                   {stat.label}
                 </p>
               </div>
@@ -98,24 +98,24 @@ export function HomeContent() {
         </div>
 
         <div className="relative lg:pt-8">
-          <div className="relative z-10 space-y-6 rounded-3xl border border-slate-100 bg-white/50 p-8 shadow-2xl shadow-slate-200/50 backdrop-blur-sm">
-            <h2 className="text-xl font-bold text-slate-900">
+          <div className="relative z-10 space-y-6 rounded-3xl border border-emerald-500/30 bg-black/60 p-8 shadow-2xl shadow-emerald-500/10 backdrop-blur-sm">
+            <h2 className="text-xl font-bold text-emerald-50">
               Bizi fərqləndirən üstünlüklər
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
               {t.features.map((feature, i) => (
                 <div
                   key={feature.title}
-                  className="group rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-1"
+                  className="group rounded-2xl border border-emerald-500/20 bg-emerald-900/40 p-5 shadow-sm transition-all hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_20px_60px_-30px_rgba(52,211,153,0.6)]"
                 >
-                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 transition-colors group-hover:bg-emerald-600 group-hover:text-white">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-300 transition-colors group-hover:bg-emerald-400 group-hover:text-black">
                     {/* Simple icon placeholder or dynamic icon based on index */}
                     <span className="text-lg font-bold">{i + 1}</span>
                   </div>
-                  <h3 className="mb-1 font-semibold text-slate-900">
+                  <h3 className="mb-1 font-semibold text-emerald-50">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <p className="text-sm leading-relaxed text-emerald-200">
                     {feature.description}
                   </p>
                 </div>
@@ -124,24 +124,24 @@ export function HomeContent() {
           </div>
 
           {/* Decorative elements */}
-          <div className="absolute right-4 top-0 -z-10 h-64 w-64 rounded-full bg-emerald-100/30 blur-3xl" />
-          <div className="absolute bottom-4 left-4 -z-10 h-64 w-64 rounded-full bg-blue-100/30 blur-3xl" />
+          <div className="absolute right-4 top-0 -z-10 h-64 w-64 rounded-full bg-emerald-500/20 blur-3xl" />
+          <div className="absolute bottom-4 left-4 -z-10 h-64 w-64 rounded-full bg-emerald-400/20 blur-3xl" />
         </div>
       </section>
 
       <section className="space-y-8 py-12">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900">
+            <h2 className="text-3xl font-bold tracking-tight text-emerald-50">
               {t.topPicksTitle}
             </h2>
-            <p className="max-w-2xl text-lg text-slate-600">
+            <p className="max-w-2xl text-lg text-emerald-200">
               {t.topPicksDescription}
             </p>
           </div>
           <Link
             href="/cars"
-            className="group flex items-center gap-2 text-sm font-semibold text-emerald-600 transition-colors hover:text-emerald-700"
+            className="group flex items-center gap-2 text-sm font-semibold text-emerald-300 transition-colors hover:text-emerald-100"
           >
             {t.heroCtas.secondary}
             <span className="transition-transform group-hover:translate-x-1">→</span>
@@ -156,10 +156,10 @@ export function HomeContent() {
 
       <section className="space-y-12 py-12">
         <div className="space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900">
+          <h2 className="text-3xl font-bold tracking-tight text-emerald-50">
             {t.categoriesTitle}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-slate-600">
+          <p className="mx-auto max-w-2xl text-lg text-emerald-200">
             {t.categoriesDescription}
           </p>
         </div>
@@ -168,13 +168,13 @@ export function HomeContent() {
           {categoryGroups.map(({ category, cars: list }) =>
             list.length ? (
               <div key={category} className="space-y-6">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                  <h3 className="text-2xl font-bold text-slate-900 capitalize">
+                <div className="flex items-center justify-between border-b border-emerald-500/20 pb-4">
+                  <h3 className="text-2xl font-bold text-emerald-50 capitalize">
                     {t.filterLabels[category]}
                   </h3>
                   <Link
                     href="/cars"
-                    className="text-sm font-medium text-slate-500 transition-colors hover:text-emerald-600"
+                    className="text-sm font-medium text-emerald-300 transition-colors hover:text-emerald-100"
                   >
                     {t.heroCtas.secondary}
                   </Link>
@@ -211,13 +211,13 @@ export function HomeContent() {
               href={whatsappLink}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-emerald-900 shadow-lg transition-all hover:bg-emerald-50 hover:scale-105"
+              className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-8 py-4 text-base font-bold text-emerald-950 shadow-lg transition-all hover:bg-emerald-300 hover:scale-105"
             >
               {t.heroCtas.primary}
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20"
+              className="inline-flex items-center justify-center rounded-full border border-white/30 bg-emerald-950/60/10 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-emerald-950/60/20"
             >
               {t.finalCtaButton}
             </Link>

@@ -85,7 +85,7 @@ export const translations: Record<LanguageCode, Translation> = {
     heroDescription:
       "Seçdiyiniz kateqoriyanı filtr edin, qiyməti görün və WhatsApp-la rezerv edin. Heç bir əlavə səhifə və ya çətin forma yoxdur.",
     heroBullets: ["Tam sığorta", "24/7 əlaqə", "Bakı çatdırılma"],
-    heroPhone: "Zəng et: +994 999 79 77 99",
+    heroPhone: "Zəng et: +994 50 979 97 97",
     heroCtas: {
       primary: "WhatsApp ilə sifariş et",
       secondary: "Bütün avtomobillərə bax",
@@ -131,7 +131,7 @@ export const translations: Record<LanguageCode, Translation> = {
       emailLabel: "E-poçt",
       emailValue: "concierge@udrive.az",
       phoneLabel: "Telefon",
-      phoneValue: "+994 999 79 77 99",
+      phoneValue: "+994 50 979 97 97",
     },
     aboutIntro:
       "uDrive komandası Azərbaycanda premium rent-a-car təcrübəsini minimalizm, şəffaflıq və sürətli kommunikasiya ilə təqdim edir.",
@@ -188,7 +188,7 @@ export const translations: Record<LanguageCode, Translation> = {
     heroDescription:
       "Filter the category you need, see the price, and confirm via WhatsApp. No extra pages or complicated forms.",
     heroBullets: ["Full insurance", "24/7 support", "Baku delivery"],
-    heroPhone: "Call: +994 999 79 77 99",
+    heroPhone: "Call: +994 50 979 97 97",
     heroCtas: {
       primary: "Order via WhatsApp",
       secondary: "View all cars",
@@ -233,7 +233,7 @@ export const translations: Record<LanguageCode, Translation> = {
       emailLabel: "Email",
       emailValue: "concierge@udrive.az",
       phoneLabel: "Phone",
-      phoneValue: "+994 999 79 77 99",
+      phoneValue: "+994 50 979 97 97",
     },
     aboutIntro:
       "uDrive team delivers premium car rental in Azerbaijan with minimal steps, transparent pricing, and immediate concierge support.",
@@ -290,7 +290,7 @@ export const translations: Record<LanguageCode, Translation> = {
     heroDescription:
       "Выберите нужную категорию, увидьте цену и бронируйте через WhatsApp — без лишних страниц и сложных форм.",
     heroBullets: ["Полное каско", "Поддержка 24/7", "Доставка по Баку"],
-    heroPhone: "Звонок: +994 999 79 77 99",
+    heroPhone: "Звонок: +994 50 979 97 97",
     heroCtas: {
       primary: "Заказать в WhatsApp",
       secondary: "Все автомобили",
@@ -335,7 +335,7 @@ export const translations: Record<LanguageCode, Translation> = {
       emailLabel: "Email",
       emailValue: "concierge@udrive.az",
       phoneLabel: "Телефон",
-      phoneValue: "+994 999 79 77 99",
+      phoneValue: "+994 50 979 97 97",
     },
     aboutIntro:
       "Команда uDrive объединяет премиальный парк, минимальные процессы и мгновенную связь для клиентов по всему Азербайджану.",

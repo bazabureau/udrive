@@ -16,10 +16,10 @@ export function CarsContent() {
         <CurrencySwitcher />
       </div>
       <div className="space-y-2">
-        <h1 className="text-3xl font-semibold text-slate-900">
+        <h1 className="text-3xl font-semibold text-emerald-50">
           {t.categoriesTitle}
         </h1>
-        <p className="text-slate-600">{t.categoriesDescription}</p>
+        <p className="text-emerald-200">{t.categoriesDescription}</p>
       </div>
       <SimpleCarGrid
         cars={cars}
