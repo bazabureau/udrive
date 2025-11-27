@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fuel, Gauge, Settings, Users } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { Car } from "@/data/cars";
 import type { CarCardLabels } from "@/data/translations";
@@ -18,6 +18,15 @@ export function CarCard({ car, labels }: CarCardProps) {
   const { currency, rates } = useCurrency();
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
+  const [tiltEnabled, setTiltEnabled] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setTiltEnabled(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
 
   const whatsappLink = `https://wa.me/994999797799?text=${encodeURIComponent(
     `Salam, ${car.brand} ${car.model} (${car.year}) üçün rezervasiya etmək istəyirəm.`
@@ -45,13 +54,17 @@ export function CarCard({ car, labels }: CarCardProps) {
   return (
     <motion.article
       className="group relative flex flex-col overflow-hidden rounded-xl sm:rounded-2xl border border-emerald-500/20 bg-emerald-950/60 shadow-lg shadow-emerald-500/10 transition-all duration-300 active:scale-95 sm:hover:-translate-y-1 sm:hover:shadow-glow-md perspective"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        transformStyle: "preserve-3d",
-        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-      }}
-      whileHover={{ scale: 1.02 }}
+      onMouseMove={tiltEnabled ? handleMouseMove : undefined}
+      onMouseLeave={tiltEnabled ? handleMouseLeave : undefined}
+      style={
+        tiltEnabled
+          ? {
+              transformStyle: "preserve-3d",
+              transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+            }
+          : undefined
+      }
+      whileHover={tiltEnabled ? { scale: 1.02 } : undefined}
       transition={{ duration: 0.3 }}
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-emerald-900/50 shimmer">
