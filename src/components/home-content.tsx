@@ -2,7 +2,6 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { CarCard } from "@/components/car/car-card";
@@ -67,15 +66,13 @@ export function HomeContent() {
           <div className="pointer-events-none absolute inset-0 bg-emerald-900/40 mix-blend-multiply" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-700/30 via-transparent to-emerald-500/20" />
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <div className="rounded-full bg-black/35 border border-white/10 backdrop-blur-sm p-4 sm:p-6 shadow-glow-sm">
-              <Image
-                src="/newlogo.png"
-                alt="Udrive"
-                width={180}
-                height={60}
-                priority
-                className="h-auto w-[140px] sm:w-[180px]"
-              />
+            <div className="rounded-full bg-black/40 border border-white/10 backdrop-blur-sm px-6 py-4 sm:px-8 sm:py-5 shadow-glow-sm text-center">
+              <p className="text-sm sm:text-base font-semibold text-emerald-50 tracking-wide uppercase">
+                Drive smart with U Drive.
+              </p>
+              <p className="text-xs sm:text-sm text-white/90 mt-1 sm:mt-2 tracking-wide">
+                Modern. Reliable. Premium.
+              </p>
             </div>
           </div>
         </motion.div>
