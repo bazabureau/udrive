@@ -26,7 +26,7 @@ export function Footer() {
                   alt="uDrive"
                   width={140}
                   height={40}
-                  className="h-8 w-auto opacity-80 brightness-0 invert transition-all hover:opacity-100 hover:drop-shadow-glow-sm"
+                  className="h-8 w-auto"
                 />
               </Link>
             </motion.div>

@@ -37,7 +37,7 @@ export function Navbar() {
                 alt="uDrive"
                 width={140}
                 height={40}
-                className="h-9 w-auto brightness-0 invert"
+                className="h-9 w-auto"
                 priority
               />
             </Link>
