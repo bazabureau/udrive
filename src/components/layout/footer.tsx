@@ -22,7 +22,7 @@ export function Footer() {
             >
               <Link href="/" className="block">
                 <Image
-                  src="/udrivelogo.png"
+                  src="/newlogo.png"
                   alt="uDrive"
                   width={140}
                   height={40}

@@ -33,7 +33,7 @@ export function Navbar() {
           >
             <Link href="/" className="flex flex-shrink-0 items-center">
               <Image
-                src="/udrivelogo.png"
+                src="/newlogo.png"
                 alt="uDrive"
                 width={140}
                 height={40}

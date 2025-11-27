@@ -69,7 +69,7 @@ export function HomeContent() {
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
             <div className="rounded-full bg-black/35 border border-white/10 backdrop-blur-sm p-4 sm:p-6 shadow-glow-sm">
               <Image
-                src="/udrivelogo.png"
+                src="/newlogo.png"
                 alt="Udrive"
                 width={180}
                 height={60}

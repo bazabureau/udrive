@@ -87,7 +87,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoRental",
   name: "uDrive Rent-a-Car",
-  image: "https://udrive.az/udrivelogo.png",
+  image: "https://udrive.az/newlogo.png",
   "@id": "https://udrive.az",
   url: "https://udrive.az",
   telephone: "+994509799797",
