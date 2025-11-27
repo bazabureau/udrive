@@ -63,6 +63,8 @@ export function HomeContent() {
           >
             <source src="/video.MP4" type="video/mp4" />
           </video>
+          <div className="pointer-events-none absolute inset-0 bg-emerald-900/40 mix-blend-multiply" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-700/30 via-transparent to-emerald-500/20" />
         </motion.div>
       </section>
 
