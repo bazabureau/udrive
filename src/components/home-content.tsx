@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { CarCard } from "@/components/car/car-card";
@@ -65,6 +66,18 @@ export function HomeContent() {
           </video>
           <div className="pointer-events-none absolute inset-0 bg-emerald-900/40 mix-blend-multiply" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-700/30 via-transparent to-emerald-500/20" />
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <div className="rounded-full bg-black/35 border border-white/10 backdrop-blur-sm p-4 sm:p-6 shadow-glow-sm">
+              <Image
+                src="/udrivelogo.png"
+                alt="Udrive"
+                width={180}
+                height={60}
+                priority
+                className="h-auto w-[140px] sm:w-[180px]"
+              />
+            </div>
+          </div>
         </motion.div>
       </section>
 
