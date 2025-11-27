@@ -6,13 +6,14 @@
   :root {
     --background: 0 0% 0%;
     --foreground: 139 80% 85%;
-    --primary: 145 90% 45%;
+    --primary: 158 70% 34%;
     --primary-foreground: 154 75% 10%;
-    --border: 145 35% 35%;
+    --border: 158 35% 35%;
   }
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   * {
@@ -21,19 +22,197 @@
 
   body {
     @apply bg-[hsl(var(--background))] font-sans text-[hsl(var(--foreground))] antialiased selection:bg-emerald-100 selection:text-emerald-900;
+    position: relative;
+  }
+
+  /* Noise texture overlay for depth */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    z-index: 9999;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #199160, #147a4d);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #1fb574, #199160);
   }
 }
 
 @layer utilities {
+
+  /* Glass effects */
   .glass {
     @apply bg-emerald-900/40 backdrop-blur-lg border border-emerald-500/20 shadow-sm;
   }
-  
+
   .glass-hover {
     @apply transition-all duration-300 hover:bg-emerald-900/60 hover:shadow-md hover:-translate-y-0.5;
   }
 
+  .glass-premium {
+    @apply bg-gradient-to-br from-emerald-900/50 to-emerald-950/30 backdrop-blur-xl border border-emerald-500/30 shadow-2xl shadow-emerald-500/10;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-300 bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  /* Text utilities */
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Glow effects */
+  .glow-emerald {
+    box-shadow: 0 0 20px rgba(25, 145, 96, 0.3), 0 0 40px rgba(25, 145, 96, 0.1);
+  }
+
+  .glow-emerald-strong {
+    box-shadow: 0 0 30px rgba(25, 145, 96, 0.5), 0 0 60px rgba(25, 145, 96, 0.2), 0 0 90px rgba(25, 145, 96, 0.1);
+  }
+
+  /* Shimmer effect */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 3s infinite;
+  }
+
+  /* Magnetic hover - apply to parent container */
+  .magnetic {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-delayed {
+    animation: float 6s ease-in-out 3s infinite;
+  }
+
+  /* Pulse glow */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Ripple effect container */
+  .ripple-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Perspective for 3D effects */
+  .perspective {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Keyframe animations */
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(25, 145, 96, 0.4), 0 0 40px rgba(25, 145, 96, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(25, 145, 96, 0.6), 0 0 60px rgba(25, 145, 96, 0.3), 0 0 90px rgba(25, 145, 96, 0.1);
+  }
+}
+
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+
+  50% {
+    background-position: 100% center;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+@layer components {
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    @apply transition-all duration-300 ease-out;
   }
 }

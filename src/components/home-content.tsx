@@ -2,13 +2,12 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import { CarCard } from "@/components/car/car-card";
-import { CurrencySwitcher } from "@/components/currency-switcher";
 import { cars } from "@/data/cars";
 import type { CarCategory } from "@/data/cars";
 import { translations } from "@/data/translations";
-import { useCurrency } from "@/contexts/currency-context";
 import { useLanguage } from "@/contexts/language-context";
 
 const categories: CarCategory[] = ["sedan", "suv", "lux"];
@@ -34,196 +33,194 @@ export function HomeContent() {
   );
 
   return (
-    <div className="space-y-12">
-      <div className="flex flex-wrap items-center gap-3">
-        <CurrencySwitcher />
-      </div>
-      <section className="relative grid gap-12 overflow-hidden rounded-3xl border border-emerald-500/20 bg-gradient-to-br from-black via-emerald-950 to-black p-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 lg:p-10">
-        {/* Background Gradient */}
-        <div className="absolute -left-20 -top-20 -z-10 h-[500px] w-[500px] rounded-full bg-emerald-500/20 blur-3xl" />
-        <div className="absolute -right-20 top-40 -z-10 h-[300px] w-[300px] rounded-full bg-emerald-400/10 blur-3xl" />
+    <div className="space-y-8 md:space-y-12">
+      <section className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-emerald-500/20 shadow-2xl shadow-emerald-500/10">
+        {/* Background Gradient with floating animation */}
+        <motion.div
+          className="absolute -left-20 -top-20 -z-10 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] rounded-full bg-emerald-500/20 blur-3xl"
+          animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -right-20 top-40 -z-10 h-[200px] w-[200px] sm:h-[300px] sm:w-[300px] rounded-full bg-emerald-400/10 blur-3xl"
+          animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
 
-        <div className="space-y-8 py-8">
-          <div className="space-y-6">
-            <div className="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1">
-              <span className="text-xs font-bold tracking-widest text-emerald-300 uppercase">
-                Premium Rent a Car
-              </span>
-            </div>
-            <h1 className="text-balance text-4xl font-bold tracking-tight text-emerald-50 md:text-5xl lg:text-6xl">
-              {t.heroTitle}
-            </h1>
-            <p className="max-w-lg text-lg leading-relaxed text-emerald-200">
-              {t.heroDescription}
-            </p>
-            <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-emerald-300">
-              {t.heroBullets.map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <div className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href={whatsappLink}
-              className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-200 transition-all hover:bg-emerald-700 hover:shadow-xl hover:-translate-y-0.5"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t.heroCtas.primary}
-            </Link>
-            <Link
-              href="/cars"
-              className="inline-flex items-center justify-center rounded-full border border-emerald-500/40 bg-transparent px-8 py-3 text-sm font-semibold text-emerald-100 shadow-sm transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-500/10"
-            >
-              {t.heroCtas.secondary}
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4 border-t border-emerald-500/20 pt-8">
-            {t.stats.map((stat) => (
-              <div key={stat.label} className="space-y-1">
-                <p className="text-3xl font-bold tracking-tight text-emerald-50">
-                  {stat.value}
-                </p>
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-300">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative lg:pt-8">
-          <div className="relative z-10 space-y-6 rounded-3xl border border-emerald-500/30 bg-black/60 p-8 shadow-2xl shadow-emerald-500/10 backdrop-blur-sm">
-            <h2 className="text-xl font-bold text-emerald-50">
-              Bizi fərqləndirən üstünlüklər
-            </h2>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {t.features.map((feature, i) => (
-                <div
-                  key={feature.title}
-                  className="group rounded-2xl border border-emerald-500/20 bg-emerald-900/40 p-5 shadow-sm transition-all hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_20px_60px_-30px_rgba(52,211,153,0.6)]"
-                >
-                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-300 transition-colors group-hover:bg-emerald-400 group-hover:text-black">
-                    {/* Simple icon placeholder or dynamic icon based on index */}
-                    <span className="text-lg font-bold">{i + 1}</span>
-                  </div>
-                  <h3 className="mb-1 font-semibold text-emerald-50">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-emerald-200">
-                    {feature.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Decorative elements */}
-          <div className="absolute right-4 top-0 -z-10 h-64 w-64 rounded-full bg-emerald-500/20 blur-3xl" />
-          <div className="absolute bottom-4 left-4 -z-10 h-64 w-64 rounded-full bg-emerald-400/20 blur-3xl" />
-        </div>
+        {/* Full-width Video */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative w-full aspect-video"
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/video.MP4" type="video/mp4" />
+          </video>
+        </motion.div>
       </section>
 
-      <section className="space-y-8 py-12">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tight text-emerald-50">
+      <section className="space-y-6 sm:space-y-8 py-8 sm:py-12">
+        <div className="flex flex-col gap-3 sm:gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="space-y-1 sm:space-y-2">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-emerald-50">
               {t.topPicksTitle}
             </h2>
-            <p className="max-w-2xl text-lg text-emerald-200">
+            <p className="max-w-2xl text-sm sm:text-base md:text-lg text-emerald-200">
               {t.topPicksDescription}
             </p>
           </div>
           <Link
             href="/cars"
-            className="group flex items-center gap-2 text-sm font-semibold text-emerald-300 transition-colors hover:text-emerald-100"
+            className="group flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-300 transition-colors hover:text-emerald-100 min-h-[44px]"
           >
             {t.heroCtas.secondary}
             <span className="transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {topCars.map((car) => (
-            <CarCard key={car.id} car={car} labels={t.carLabels} />
+        <motion.div
+          className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {topCars.map((car, i) => (
+            <motion.div
+              key={car.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+            >
+              <CarCard car={car} labels={t.carLabels} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
-      <section className="space-y-12 py-12">
-        <div className="space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-emerald-50">
+      <section className="space-y-8 sm:space-y-12 py-8 sm:py-12">
+        <div className="space-y-3 sm:space-y-4 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-emerald-50">
             {t.categoriesTitle}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-emerald-200">
+          <p className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-emerald-200">
             {t.categoriesDescription}
           </p>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-10 sm:space-y-16">
           {categoryGroups.map(({ category, cars: list }) =>
             list.length ? (
-              <div key={category} className="space-y-6">
-                <div className="flex items-center justify-between border-b border-emerald-500/20 pb-4">
-                  <h3 className="text-2xl font-bold text-emerald-50 capitalize">
+              <div key={category} className="space-y-4 sm:space-y-6">
+                <div className="flex items-center justify-between border-b border-emerald-500/20 pb-3 sm:pb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-emerald-50 capitalize">
                     {t.filterLabels[category]}
                   </h3>
                   <Link
                     href="/cars"
-                    className="text-sm font-medium text-emerald-300 transition-colors hover:text-emerald-100"
+                    className="text-xs sm:text-sm font-medium text-emerald-300 transition-colors hover:text-emerald-100 min-h-[44px] flex items-center"
                   >
                     {t.heroCtas.secondary}
                   </Link>
                 </div>
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {list.map((car) => (
-                    <CarCard key={car.id} car={car} labels={t.carLabels} />
+                <motion.div
+                  className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {list.map((car, i) => (
+                    <motion.div
+                      key={car.id}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1, duration: 0.5 }}
+                    >
+                      <CarCard car={car} labels={t.carLabels} />
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
               </div>
             ) : null
           )}
         </div>
       </section>
 
-      <section className="relative overflow-hidden rounded-3xl bg-emerald-900 px-6 py-16 text-center text-white shadow-2xl md:px-12 md:py-24">
-        {/* Background Pattern */}
+      <motion.section
+        className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-emerald-900 px-5 sm:px-6 py-12 sm:py-16 text-center text-white shadow-2xl md:px-12 md:py-24"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Background Pattern with animation */}
         <div className="absolute inset-0 -z-10 opacity-10">
-          <div className="absolute -left-24 -top-24 h-96 w-96 rounded-full bg-emerald-400 blur-3xl" />
-          <div className="absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-emerald-400 blur-3xl" />
+          <motion.div
+            className="absolute -left-24 -top-24 h-96 w-96 rounded-full bg-emerald-400 blur-3xl"
+            animate={{ scale: [1, 1.2, 1], x: [0, 20, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-emerald-400 blur-3xl"
+            animate={{ scale: [1, 1.1, 1], x: [0, -20, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
 
-        <div className="mx-auto max-w-3xl space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+        <div className="mx-auto max-w-3xl space-y-6 sm:space-y-8">
+          <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight md:text-4xl">
               {t.finalCtaTitle}
             </h2>
-            <p className="text-lg text-emerald-100/90 md:text-xl">
+            <p className="text-base sm:text-lg text-emerald-100/90 md:text-xl">
               {t.finalCtaDescription}
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href={whatsappLink}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-8 py-4 text-base font-bold text-emerald-950 shadow-lg transition-all hover:bg-emerald-300 hover:scale-105"
+          <motion.div
+            className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <motion.div
+              className="w-full sm:w-auto"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {t.heroCtas.primary}
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-white/30 bg-emerald-950/60/10 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-emerald-950/60/20"
+              <Link
+                href={whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center rounded-full bg-emerald-400 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-emerald-950 shadow-lg shadow-emerald-400/50 transition-all hover:bg-emerald-300 animate-pulse-glow shimmer min-h-[48px]"
+              >
+                {t.heroCtas.primary}
+              </Link>
+            </motion.div>
+            <motion.div
+              className="w-full sm:w-auto"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {t.finalCtaButton}
-            </Link>
-          </div>
+              <Link
+                href="/contact"
+                className="flex items-center justify-center rounded-full border border-white/30 bg-emerald-950/60/10 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-emerald-950/60/20 hover:shadow-glow-sm min-h-[48px]"
+              >
+                {t.finalCtaButton}
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }
