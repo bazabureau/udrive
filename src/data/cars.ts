@@ -53,8 +53,7 @@ const baseCars = [
     engine: "2L / 165HP",
     gear: "Automatic",
     pricePerDay: 130,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Hyundai_Sonata_DN8_PE_Serenity_White_Pearl_%282%29.jpg/1280px-Hyundai_Sonata_DN8_PE_Serenity_White_Pearl_%282%29.jpg",
+    image: "/cars/Hyundai  Sonata.jpg",
   },
   {
     id: "land-rover-defender",
@@ -67,8 +66,7 @@ const baseCars = [
     engine: "3L / 400HP",
     gear: "Automatic",
     pricePerDay: 450,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Land_Rover_Defender_L663_white_%281%29.jpg/1280px-Land_Rover_Defender_L663_white_%281%29.jpg",
+    image: "/cars/defender.jpg",
   },
   {
     id: "kia-sorento",
@@ -95,8 +93,7 @@ const baseCars = [
     engine: "1.5L / 170HP",
     gear: "Automatic",
     pricePerDay: 120,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Kia_K5_Hybrid_DL3_White_%281%29.jpg/1280px-Kia_K5_Hybrid_DL3_White_%281%29.jpg",
+    image: "/cars/Kia  K5.jpg",
   },
   {
     id: "hyundai-elantra",
@@ -137,8 +134,7 @@ const baseCars = [
     engine: "1.5L / 181HP",
     gear: "Automatic",
     pricePerDay: 140,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Chang%27an_UNI-K_iDD_001.jpg/1280px-Chang%27an_UNI-K_iDD_001.jpg",
+    image: "/cars/Changan  Uni K.jpg",
   },
   {
     id: "changan-gs55",
@@ -207,8 +203,7 @@ const baseCars = [
     engine: "3L / 286HP",
     gear: "Automatic",
     pricePerDay: 330,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/BMW_G05_45e_IMG_3722.jpg/1280px-BMW_G05_45e_IMG_3722.jpg",
+    image: "/cars/X5 F95 .jpg",
   },
   {
     id: "toyota-prado",
