@@ -65,16 +65,24 @@ export function HomeContent() {
           </video>
           <div className="pointer-events-none absolute inset-0 bg-emerald-900/40 mix-blend-multiply" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-700/30 via-transparent to-emerald-500/20" />
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <div className="rounded-full bg-black/40 border border-white/10 backdrop-blur-sm px-6 py-4 sm:px-8 sm:py-5 shadow-glow-sm text-center">
-              <p className="text-sm sm:text-base font-semibold text-emerald-50 tracking-wide uppercase">
-                Drive smart with U Drive.
-              </p>
-              <p className="text-xs sm:text-sm text-white/90 mt-1 sm:mt-2 tracking-wide">
-                Modern. Reliable. Premium.
-              </p>
+          <motion.div
+            className="pointer-events-none absolute inset-0 flex items-center justify-center"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="relative overflow-hidden rounded-2xl border border-emerald-400/40 bg-black/50 px-8 py-6 sm:px-12 sm:py-8 text-center shadow-[0_0_50px_rgba(16,185,129,0.35)] backdrop-blur-md">
+              <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-r from-emerald-500/40 via-emerald-300/10 to-emerald-500/40 opacity-70" />
+              <div className="relative space-y-3">
+                <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
+                  Drive smart with U Drive.
+                </p>
+                <p className="text-sm sm:text-base uppercase tracking-[0.28em] text-emerald-100/90">
+                  Modern • Reliable • Premium
+                </p>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </section>
 
