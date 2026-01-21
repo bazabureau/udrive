@@ -12,9 +12,11 @@ import { useCurrency } from "@/contexts/currency-context";
 interface CarCardProps {
   car: Car;
   labels: CarCardLabels;
+  categoryLabel?: string;
 }
 
-export function CarCard({ car, labels }: CarCardProps) {
+export function CarCard({ car, labels, categoryLabel }: CarCardProps) {
+  const resolvedCategoryLabel = categoryLabel ?? car.category.toUpperCase();
   const { currency, rates } = useCurrency();
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -28,8 +30,12 @@ export function CarCard({ car, labels }: CarCardProps) {
     return () => mql.removeEventListener("change", update);
   }, []);
 
+  const whatsappMessage = labels.whatsappTemplate
+    .replace("{brand}", car.brand)
+    .replace("{model}", car.model)
+    .replace("{year}", String(car.year));
   const whatsappLink = `https://wa.me/994999797799?text=${encodeURIComponent(
-    `Salam, ${car.brand} ${car.model} (${car.year}) üçün rezervasiya etmək istəyirəm.`
+    whatsappMessage
   )}`;
   const convertedPrice = (car.pricePerDay * rates[currency]).toFixed(0);
 
@@ -53,7 +59,7 @@ export function CarCard({ car, labels }: CarCardProps) {
 
   return (
     <motion.article
-      className="group relative flex flex-col overflow-hidden rounded-xl sm:rounded-2xl border border-emerald-500/20 bg-emerald-950/60 shadow-lg shadow-emerald-500/10 transition-all duration-300 active:scale-95 sm:hover:-translate-y-1 sm:hover:shadow-glow-md perspective"
+      className="group relative flex flex-col overflow-hidden rounded-xl sm:rounded-2xl border border-border bg-card shadow-lg transition-all duration-300 active:scale-95 sm:hover:-translate-y-1 sm:hover:shadow-glow-md perspective"
       onMouseMove={tiltEnabled ? handleMouseMove : undefined}
       onMouseLeave={tiltEnabled ? handleMouseLeave : undefined}
       style={
@@ -67,7 +73,7 @@ export function CarCard({ car, labels }: CarCardProps) {
       whileHover={tiltEnabled ? { scale: 1.02 } : undefined}
       transition={{ duration: 0.3 }}
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-emerald-900/50 shimmer">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted shimmer">
         <Image
           src={car.image}
           alt={`${car.brand} ${car.model}`}
@@ -76,39 +82,39 @@ export function CarCard({ car, labels }: CarCardProps) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         <motion.div
-          className="absolute right-2 top-2 sm:right-3 sm:top-3 rounded-full border border-emerald-500/30 bg-black/70 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300 backdrop-blur-sm"
+          className="absolute right-2 top-2 sm:right-3 sm:top-3 rounded-full border border-border bg-background/80 px-2.5 py-1 sm:px-3 sm:py-1 text-xs sm:text-sm font-bold uppercase tracking-wider text-primary backdrop-blur-sm"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2 }}
           whileHover={{ scale: 1.1 }}
         >
-          {car.category}
+          {resolvedCategoryLabel}
         </motion.div>
       </div>
 
-      <div className="flex flex-1 flex-col gap-3 sm:gap-4 p-4 sm:p-5">
+      <div className="flex flex-1 flex-col gap-4 sm:gap-5 p-5 sm:p-6">
         <div className="flex items-start justify-between gap-2">
           <div>
-            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300/80">
+            <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-muted-foreground">
               {car.brand}
             </p>
-            <h3 className="text-base sm:text-lg font-bold text-emerald-50">
+            <h3 className="text-lg sm:text-xl font-bold text-foreground">
               {car.model}
             </h3>
           </div>
           <div className="text-right">
-            <p className="text-base sm:text-lg font-bold text-emerald-300">
-              {convertedPrice} <span className="text-xs sm:text-sm font-medium text-emerald-200/80">{currency}</span>
+            <p className="text-lg sm:text-xl font-bold text-primary">
+              {convertedPrice} <span className="text-sm font-medium text-muted-foreground">{currency}</span>
             </p>
-            <p className="text-[9px] sm:text-[10px] text-emerald-300/70">/ gün</p>
+            <p className="text-xs text-muted-foreground">{labels.perDay}</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-y-2 gap-x-3 sm:gap-x-4 border-y border-emerald-500/20 py-2.5 sm:py-3">
+        <div className="grid grid-cols-2 gap-y-3 gap-x-4 border-y border-border py-3">
           <Spec icon={Settings} value={car.year} />
           <Spec icon={Gauge} value={car.engine} />
           <Spec icon={Fuel} value={car.type} />
-          <Spec icon={Users} value={`${car.seats} yer`} />
+          <Spec icon={Users} value={`${car.seats} ${labels.seatsUnit}`} />
         </div>
 
         <div className="mt-auto flex gap-2">
@@ -117,7 +123,7 @@ export function CarCard({ car, labels }: CarCardProps) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button asChild className="w-full bg-emerald-400 text-emerald-950 hover:bg-emerald-300 shadow-lg shadow-emerald-500/30 shimmer h-11 sm:h-auto text-sm sm:text-base">
+            <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shimmer h-11 text-base">
               <Link href={whatsappLink} target="_blank" rel="noreferrer">
                 {labels.orderCta}
               </Link>
@@ -137,9 +143,9 @@ function Spec({
   value: string | number;
 }) {
   return (
-    <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-emerald-200">
-      <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-300/70 flex-shrink-0" />
-      <span className="font-medium text-emerald-50 truncate">{value}</span>
+    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+      <Icon className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+      <span className="font-medium text-foreground truncate">{value}</span>
     </div>
   );
 }
