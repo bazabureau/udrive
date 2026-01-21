@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
-  transferPackages,
+  transferCars,
   type TransferPackage,
   type TransferRoute,
 } from "@/data/transfer-cars";
@@ -28,7 +28,7 @@ export function TransferContent() {
     const seen = new Set<string>();
     const routes: string[] = [];
 
-    for (const transfer of transferPackages) {
+    for (const transfer of transferCars) {
       for (const route of transfer.routes) {
         if (seen.has(route.destination)) {
           continue;
@@ -64,7 +64,7 @@ export function TransferContent() {
       return "sedan";
     };
 
-    return transferPackages.flatMap((transfer) => {
+    return transferCars.flatMap((transfer) => {
       const matchesCategory =
         activeCategory === "all" ||
         resolveCategory(transfer.name) === activeCategory;
