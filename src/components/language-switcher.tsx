@@ -29,7 +29,7 @@ export function LanguageSwitcher() {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-sm font-semibold text-emerald-100 transition-all hover:border-emerald-400/50 hover:bg-emerald-500/20"
+        className="flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-2.5 text-sm font-semibold text-foreground transition-all hover:bg-muted/80"
       >
         <span>{currentOption.label}</span>
         <ChevronDown className={`h-3.5 w-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`} />
@@ -42,7 +42,7 @@ export function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 top-full mt-2 w-28 overflow-hidden rounded-xl border border-emerald-500/30 bg-black/95 backdrop-blur-xl shadow-lg shadow-emerald-500/10"
+            className="absolute right-0 top-full mt-2 w-28 overflow-hidden rounded-xl border border-border bg-card backdrop-blur-xl shadow-lg"
           >
             {languageOptions.map((option) => (
               <button
@@ -53,8 +53,8 @@ export function LanguageSwitcher() {
                   setIsOpen(false);
                 }}
                 className={`flex w-full items-center justify-center px-4 py-2.5 text-sm font-medium transition-colors ${language === option.id
-                    ? "bg-emerald-500/20 text-emerald-300"
-                    : "text-emerald-100 hover:bg-emerald-500/10"
+                    ? "bg-primary/10 text-primary"
+                    : "text-foreground hover:bg-muted"
                   }`}
               >
                 {option.label}

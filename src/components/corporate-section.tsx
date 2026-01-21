@@ -8,31 +8,35 @@ export function CorporateSection() {
   const t = translations[language];
 
   return (
-    <div className="space-y-6">
-      <div className="space-y-3">
-        <h1 className="text-3xl font-semibold text-emerald-50">
-          {t.corporateTitle}
-        </h1>
-        <p className="text-emerald-200">{t.corporateDescription}</p>
-      </div>
-      <div className="grid gap-4 md:grid-cols-3">
-        {t.corporateBullets.map((item) => (
-          <div
-            key={item}
-            className="rounded-2xl border border-emerald-500/20 bg-emerald-950/60 p-5 shadow-sm"
-          >
-            <p className="text-sm font-semibold text-emerald-50">{item}</p>
-          </div>
-        ))}
-      </div>
-      <div className="space-y-2 rounded-2xl border border-emerald-500/20 bg-emerald-950/60 p-5 shadow-sm">
-        <p className="text-sm font-semibold text-emerald-50">Process</p>
-        <ol className="list-decimal space-y-2 pl-5 text-sm text-emerald-200">
-          {t.corporateProcess.map((step) => (
-            <li key={step}>{step}</li>
+    <section className="pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24">
+      <div className="container mx-auto space-y-10">
+        <div className="space-y-4">
+          <h1 className="text-4xl sm:text-5xl font-semibold text-foreground">
+            {t.corporateTitle}
+          </h1>
+          <p className="text-base sm:text-lg text-muted-foreground">{t.corporateDescription}</p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {t.corporateBullets.map((item) => (
+            <div
+              key={item}
+              className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+            >
+              <p className="text-base font-semibold text-foreground">{item}</p>
+            </div>
           ))}
-        </ol>
+        </div>
+        <div className="space-y-3 rounded-2xl border border-border bg-card p-6 shadow-sm">
+          <p className="text-base font-semibold text-foreground">
+            {t.corporateProcessTitle}
+          </p>
+          <ol className="list-decimal space-y-2 pl-5 text-base text-muted-foreground">
+            {t.corporateProcess.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

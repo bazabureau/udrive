@@ -4,11 +4,11 @@ export default function manifest(): MetadataRoute.Manifest {
     return {
         name: "uDrive Rent-a-Car",
         short_name: "uDrive",
-        description: "Premium Avtomobil Kirayəsi Bakıda",
-        start_url: "/",
+        description: "Premium car rental in Baku",
+        start_url: "/az",
         display: "standalone",
-        background_color: "#ffffff",
-        theme_color: "#059669", // Emerald-600
+        background_color: "#F7F9FB",
+        theme_color: "#14F195",
         icons: [
             {
                 src: "/favicon.ico",

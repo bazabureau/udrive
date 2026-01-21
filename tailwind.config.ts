@@ -11,9 +11,13 @@ const config: Config = {
   theme: {
     container: {
       center: true,
+      screens: {
+        "2xl": "1280px",
+      },
       padding: {
-        DEFAULT: "1rem",
-        lg: "2rem",
+        DEFAULT: "1.5rem",
+        sm: "2rem",
+        lg: "2.5rem",
         xl: "3rem",
       },
     },
@@ -55,17 +59,17 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        glow: "0 20px 80px rgba(25, 145, 96, 0.15)",
-        "glow-sm": "0 0 20px rgba(25, 145, 96, 0.3), 0 0 40px rgba(25, 145, 96, 0.1)",
-        "glow-md": "0 0 30px rgba(25, 145, 96, 0.4), 0 0 60px rgba(25, 145, 96, 0.2)",
-        "glow-lg": "0 0 40px rgba(25, 145, 96, 0.5), 0 0 80px rgba(25, 145, 96, 0.3)",
+        glow: "0 20px 80px rgba(20, 241, 149, 0.15)",
+        "glow-sm": "0 0 20px rgba(20, 241, 149, 0.3), 0 0 40px rgba(20, 241, 149, 0.1)",
+        "glow-md": "0 0 30px rgba(20, 241, 149, 0.4), 0 0 60px rgba(20, 241, 149, 0.2)",
+        "glow-lg": "0 0 40px rgba(20, 241, 149, 0.5), 0 0 80px rgba(20, 241, 149, 0.3)",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: {
         "hero-gradient":
-          "radial-gradient(circle at top, rgba(25, 145, 96, 0.2), transparent 55%), radial-gradient(circle at 30% 40%, rgba(44,62,80,0.25), transparent 60%)",
+          "radial-gradient(circle at top, rgba(20, 241, 149, 0.18), transparent 55%), radial-gradient(circle at 30% 40%, rgba(255, 138, 0, 0.12), transparent 60%)",
       },
       animation: {
         shimmer: "shimmer 3s infinite",

@@ -1,74 +1,113 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { Facebook, Instagram, Phone, Mail, MapPin } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
+import { translations } from "@/data/translations";
+import { addLanguagePrefix } from "@/lib/i18n";
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+  const { language } = useLanguage();
+  const t = translations[language];
+  const footer = t.footer;
+  const copyright = footer.copyright.replace("{year}", String(currentYear));
+  const withLang = (href: string) => addLanguagePrefix(href, language);
+
   return (
-    <motion.footer
-      className="border-t border-emerald-500/20 bg-emerald-900/30"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-          <div className="space-y-4">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Link href="/" className="block">
-                <Image
-                  src="/newlogo.png"
-                  alt="uDrive"
-                  width={140}
-                  height={40}
-                  className="h-8 w-auto"
-                />
-              </Link>
-            </motion.div>
-            <p className="text-sm text-emerald-300">
-              Premium Rent-a-Car xidməti. <br />
-              Sizin rahatlığınız bizim prioritetimizdir.
+    <footer className="border-t border-border bg-background pt-20 pb-10">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+          {/* Brand */}
+          <div className="space-y-6">
+            <Link href={withLang("/")} className="block">
+              <span className="text-xl font-bold text-primary tracking-tight">uDrive</span>
+            </Link>
+            <p className="text-muted-foreground text-base leading-relaxed">
+              {footer.descriptionLines.map((line, index) => (
+                <span key={line}>
+                  {line}
+                  {index < footer.descriptionLines.length - 1 ? <br /> : null}
+                </span>
+              ))}
             </p>
+            <div className="flex gap-4">
+              <Link href="#" className="p-2 rounded-full bg-muted hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors">
+                <Instagram className="w-5 h-5" />
+              </Link>
+              <Link href="#" className="p-2 rounded-full bg-muted hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors">
+                <Facebook className="w-5 h-5" />
+              </Link>
+            </div>
           </div>
 
-          <div className="flex flex-col gap-4 text-sm text-emerald-300 sm:flex-row sm:gap-8">
-            <div className="flex flex-col gap-2">
-              <span className="font-semibold text-emerald-50">Əlaqə</span>
-              <Link href="tel:+994509799797" className="group relative inline-block hover:text-emerald-400 transition-colors">
-                +994 50 979 97 97
-                <span className="absolute -bottom-0.5 left-0 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full" />
-              </Link>
-              <Link href="mailto:info@udrive.az" className="group relative inline-block hover:text-emerald-400 transition-colors">
-                info@udrive.az
-                <span className="absolute -bottom-0.5 left-0 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full" />
-              </Link>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="font-semibold text-emerald-50">Ünvan</span>
-              <p>Bakı şəhəri, Azərbaycan</p>
-            </div>
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-bold text-foreground mb-6">{footer.exploreTitle}</h3>
+            <ul className="space-y-4 text-base text-muted-foreground">
+              {footer.exploreLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={withLang(link.href)} className="hover:text-primary transition-colors flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="font-bold text-foreground mb-6">{footer.contactTitle}</h3>
+            <ul className="space-y-4 text-base text-muted-foreground">
+              <li className="flex items-start gap-3">
+                <Phone className="w-5 h-5 text-primary shrink-0" />
+                <a
+                  href={`tel:${footer.contactPhone.replace(/\s+/g, "")}`}
+                  className="hover:text-foreground transition-colors"
+                >
+                  {footer.contactPhone}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-primary shrink-0" />
+                <a
+                  href={`mailto:${footer.contactEmail}`}
+                  className="hover:text-foreground transition-colors"
+                >
+                  {footer.contactEmail}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-primary shrink-0" />
+                <span>{footer.contactAddress}</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="font-bold text-foreground mb-6">{footer.legalTitle}</h3>
+            <ul className="space-y-4 text-base text-muted-foreground">
+              {footer.legalLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={withLang(link.href)} className="hover:text-foreground transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-emerald-500/20 pt-8 text-sm text-emerald-300/80 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} uDrive.az. Bütün hüquqlar qorunur.</p>
-          <div className="flex gap-6">
-            <Link href="/terms" className="group relative hover:text-emerald-400 transition-colors">
-              İstifadə qaydaları
-              <span className="absolute -bottom-0.5 left-0 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full" />
-            </Link>
-            <Link href="/privacy" className="group relative hover:text-emerald-400 transition-colors">
-              Məxfilik siyasəti
-              <span className="absolute -bottom-0.5 left-0 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full" />
-            </Link>
+        <div className="border-t border-border pt-10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+          <p>{copyright}</p>
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            <span>{footer.status}</span>
           </div>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 }
